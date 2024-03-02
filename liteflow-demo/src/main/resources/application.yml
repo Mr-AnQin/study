@@ -1,0 +1,5 @@
+server:
+  port: 18081
+
+liteflow:
+  rule-source: config/**/*.el.xml
