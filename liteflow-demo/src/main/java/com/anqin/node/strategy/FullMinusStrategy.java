@@ -52,11 +52,14 @@ public class FullMinusStrategy extends NodeComponent {
 
         BigDecimal minus = bargainPrice.getMinus();
 
+        order.setDiscountPrice(minus);
 
-        log.atInfo().log("「执行满减法策略」执行完毕 共折扣{}元", order.getDiscountPrice());
+
+        log.atInfo().log("「执行满减法策略」执行完毕 共折扣{}元", minus);
+
 
         // 5. 添加策略
         contextBean.getStrategyList()
-                .add(new StrategyEntity(OrderStrategyEnum.FULL_MINUS, totalPrice.multiply(minus), minus));
+                .add(new StrategyEntity(OrderStrategyEnum.FULL_MINUS, totalPrice.subtract(minus), minus));
     }
 }

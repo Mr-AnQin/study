@@ -44,12 +44,13 @@ public class DiscountStrategy extends NodeComponent {
 
 
         // 4. 执行满减策略
-        order.setDiscountPrice(totalPrice.multiply(discount));
+        BigDecimal actualPrice = totalPrice.multiply(discount);
+        order.setDiscountPrice(actualPrice);
 
         log.atInfo().log("「折扣策略」执行完毕 共折扣{}元", order.getDiscountPrice());
 
         // 5. 添加策略
         contextBean.getStrategyList()
-                .add(new StrategyEntity(OrderStrategyEnum.DISCOUNT, totalPrice.multiply(discount), discount));
+                .add(new StrategyEntity(OrderStrategyEnum.DISCOUNT,actualPrice, totalPrice.subtract(actualPrice)));
     }
 }

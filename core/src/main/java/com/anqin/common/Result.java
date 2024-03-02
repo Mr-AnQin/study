@@ -66,4 +66,14 @@ public class Result<T> {
     public static <T> Result<T> error(String message) {
         return Result.<T>i().code("500").message(message).e();
     }
+
+    /**
+     * 500
+     *
+     * @param t t
+     * @return {@link Result}<{@link T}>
+     */
+    public static <T> Result<T> error(T t) {
+        return Result.<T>i().code("500").data(t).message("执行失败").e();
+    }
 }

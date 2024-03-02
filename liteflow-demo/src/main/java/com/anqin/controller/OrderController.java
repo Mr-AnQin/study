@@ -37,8 +37,8 @@ public class OrderController {
     public Result<?> createOrder() {
 
         // 1.创建上下文
-        Product mac = new Product(UUID.fastUUID().toString(true), "笔记本", "Mac M1", BigDecimal.valueOf(15600));
-        Product windows = new Product(UUID.fastUUID().toString(true), "笔记本", "Windows", BigDecimal.valueOf(15600));
+        Product mac = new Product(UUID.fastUUID().toString(true), "笔记本", "Mac M1", BigDecimal.valueOf(12.4));
+        Product windows = new Product(UUID.fastUUID().toString(true), "笔记本", "Windows", BigDecimal.valueOf(12.6));
 
         ProcessFlowContext flowContext = new ProcessFlowContext().setProductList(Arrays.asList(mac, windows));
 
@@ -50,6 +50,6 @@ public class OrderController {
         if (response.isSuccess()) {
             return Result.ok(contextBean.getOrder());
         }
-        return Result.error("执行失败！");
+        return Result.error(response.getCause());
     }
 }

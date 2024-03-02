@@ -37,6 +37,7 @@ public class InitNode extends NodeComponent {
                 .setOrderId(UUID.fastUUID().toString(true))
                 .setUserId(RandomUtil.randomNumbers(6))
                 .setProductList(contextBean.getProductList())
+                .setProductQuantity(contextBean.getProductList().size())
                 // 商品总金额
                 .setTotalPrice(
                         CollectionUtil.mappingList(contextBean.getProductList(), Product::getProductPrice)

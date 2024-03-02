@@ -22,12 +22,12 @@ public enum FullMinusConfigStrategyEnum implements FullMinusService {
     /**
      * 平价
      */
-    FAIR_PRICE(BigDecimal.valueOf(100), BigDecimal.valueOf(20)),
+    FAIR_PRICE(BigDecimal.valueOf(10), BigDecimal.valueOf(6)),
 
     /**
      * 低价
      */
-    BARGAIN_PRICE(BigDecimal.valueOf(200), BigDecimal.valueOf(50));
+    BARGAIN_PRICE(BigDecimal.valueOf(5), BigDecimal.valueOf(3));
 
 
     /**

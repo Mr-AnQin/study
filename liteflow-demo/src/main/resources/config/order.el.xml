@@ -6,7 +6,7 @@
         WHEN(fullMinusStrategy,discountStrategy), <!--并行执行，全不执行完成后才会进入后的节点-->
         confirmStrategyNode, <!--确认策略节点-->
         confirmPostageNode, <!--确认邮费节点-->
-        createOrderNode
+        createOrderNode     <!--创建订单节点-->
         )
     </chain>
 </flow>
